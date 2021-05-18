@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author GROUP 2
+ * @author Okechukwu Okonwanji
  */
 @Stateless
 public class OffersFacade extends AbstractFacade<Offers> implements remote.OffersFacadeRemote {

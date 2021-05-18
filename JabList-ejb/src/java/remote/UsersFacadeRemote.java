@@ -12,7 +12,7 @@ import javax.ejb.Remote;
 
 /**
  *
- * @author GROUP 2
+ * @author Okechukwu Okonwanji
  */
 @Remote
 public interface UsersFacadeRemote {

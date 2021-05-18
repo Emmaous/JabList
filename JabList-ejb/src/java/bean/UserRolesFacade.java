@@ -13,7 +13,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author GROUP 2
+ * @author Okechukwu Okonwanji
  */
 @Stateless
 public class UserRolesFacade extends AbstractFacade<Roles> implements remote.UserRolesFacadeRemote {
