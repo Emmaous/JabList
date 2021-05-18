@@ -17,7 +17,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class LogsFacade extends AbstractFacade<Logs> implements remote.LogsFacadeRemote {
 
-    @PersistenceContext(unitName = "JabList-PU")
+    @PersistenceContext(unitName = "JabList-ejbPU")
     private EntityManager em;
 
     @Override

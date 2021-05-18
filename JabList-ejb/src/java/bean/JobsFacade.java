@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class JobsFacade extends AbstractFacade<JobDescription> implements remote.JobsFacadeRemote {
 
-    @PersistenceContext(unitName = "JabList-PU")
+    @PersistenceContext(unitName = "JabList-ejbPU")
     private EntityManager em;
 
     @Override

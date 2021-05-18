@@ -6,7 +6,6 @@
 package bean;
 
 import entity.Roles;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +17,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class UserRolesFacade extends AbstractFacade<Roles> implements remote.UserRolesFacadeRemote {
 
-    @PersistenceContext(unitName = "JabList-PU")
+    @PersistenceContext(unitName = "JabList-ejbPU")
     private EntityManager em;
 
     @Override
