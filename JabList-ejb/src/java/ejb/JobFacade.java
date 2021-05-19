@@ -61,4 +61,6 @@ public class JobFacade extends AbstractFacade<JobsGroup7> implements JobFacadeLo
                 .setParameter("status", "Open")
                 .getResultList();
     }
+
+    
 }

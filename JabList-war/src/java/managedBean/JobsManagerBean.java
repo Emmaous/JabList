@@ -73,8 +73,10 @@ public class JobsManagerBean implements Serializable {
     }
     
     public List<JobsGroup7> printAllJobs(){
-        return null;     
+        return jobFacade.findAll();     
     };
+    
+    
   
     public void createJob(UsersGroup7 providerId) {
         

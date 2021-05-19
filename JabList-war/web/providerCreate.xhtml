@@ -52,13 +52,13 @@
                       <td>Pay-Offer:</td>
                       <td><h:inputText size="5" value="#{jobsManagerBean.paymentOffer}" /></td>
                 </tr>
-                <tr>
+               <!-- <tr>
                       <td>Keywords:</td>
                       <td><h:inputText size="5" value="#{jobsManagerBean.description}"/></td>
-                </tr>
+                </tr> -->
                 <tr>
                       <td><h:commandButton value="Create"
-                                           action="#{jobsManagerBean.createJob(userManager.id)}" /></td>
+                                           action="#{jobsManagerBean.createJob(providerManagerBean.id)}" /></td>
                 </tr>
             </table>
         </h:form>

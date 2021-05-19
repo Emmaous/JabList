@@ -14,7 +14,6 @@
         
         <h:form>
             <h:dataTable value='#{jobsManagerBean.cjob.usersGroup7Collection}' var='freelancer' border='1' width='300' cellpadding="5">
-                
                     <h:column>
                         <f:facet name='header'>Name</f:facet>
                         <h:outputText value="#{freelancer.name}"/>
@@ -22,12 +21,12 @@
 
                     <h:column>
                         <f:facet name="header">View</f:facet>
-                        <h:commandButton value="Delete" action="#{userManager.viewFreelancer(freelancer)}"/>
+                        <h:commandButton value="View" action="#{userManager.viewFreelancer(freelancer)}"/>
                     </h:column>
                     
                     <h:column>
                         <f:facet name="header">Accept</f:facet>
-                        <h:commandButton value="Delete" action="#{userManager.removeFreelancer(freelancer)}"/>
+                        <h:commandButton value="Accept" action="#{userManager.removeFreelancer(freelancer)}"/>
                     </h:column>
                 
                     
