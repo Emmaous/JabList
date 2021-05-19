@@ -41,6 +41,15 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         super(UsersGroup7.class);
     }
 
+    /**
+     * 
+     * Method to Create a Freelancer
+     * 
+     * @param user
+     * @param msg
+     * @param skills
+     * @return 
+     */
     @Override
     public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skills) {
         try {
