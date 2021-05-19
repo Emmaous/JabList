@@ -6,7 +6,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,12 +61,12 @@ public class JobsGroup7 implements Serializable {
         @JoinColumn(name = "JOB_ID", referencedColumnName = "JOB_ID")}, inverseJoinColumns = {
         @JoinColumn(name = "TAG_ID", referencedColumnName = "TAG_ID")})
     @ManyToMany
-    private Collection<TagsGroup7> tagsGroup7Collection;
+    private List<TagsGroup7> tagsGroup7Collection;
     @JoinTable(name = "APPLICATION_GROUP7", joinColumns = {
         @JoinColumn(name = "JOB_ID", referencedColumnName = "JOB_ID")}, inverseJoinColumns = {
         @JoinColumn(name = "FREELANCER_ID", referencedColumnName = "USER_ID")})
     @ManyToMany
-    private Collection<UsersGroup7> usersGroup7Collection;
+    private List<UsersGroup7> usersGroup7Collection;
     @JoinColumn(name = "PROVIDER_ID", referencedColumnName = "USER_ID")
     @ManyToOne
     private UsersGroup7 providerId;
@@ -120,20 +120,20 @@ public class JobsGroup7 implements Serializable {
     }
 
     @XmlTransient
-    public Collection<TagsGroup7> getTagsGroup7Collection() {
+    public List<TagsGroup7> getTagsGroup7Collection() {
         return tagsGroup7Collection;
     }
 
-    public void setTagsGroup7Collection(Collection<TagsGroup7> tagsGroup7Collection) {
+    public void setTagsGroup7Collection(List<TagsGroup7> tagsGroup7Collection) {
         this.tagsGroup7Collection = tagsGroup7Collection;
     }
 
     @XmlTransient
-    public Collection<UsersGroup7> getUsersGroup7Collection() {
+    public List<UsersGroup7> getUsersGroup7Collection() {
         return usersGroup7Collection;
     }
 
-    public void setUsersGroup7Collection(Collection<UsersGroup7> usersGroup7Collection) {
+    public void setUsersGroup7Collection(List<UsersGroup7> usersGroup7Collection) {
         this.usersGroup7Collection = usersGroup7Collection;
     }
 
