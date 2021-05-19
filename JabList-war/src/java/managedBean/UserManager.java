@@ -30,6 +30,7 @@ public class UserManager implements Serializable {
     private String pword;
     private String message;
     private String role;
+    private UsersGroup7 cUser;
     private SkillsGroup7 skill;
     private List<SkillsGroup7> skills;
     
@@ -127,6 +128,12 @@ public class UserManager implements Serializable {
         String id = "";
         UsersGroup7 user = new UsersGroup7(id, name, pword, "FR");
         userFacade.createFreelancer(user, message, skills);
+    }
+    
+    public String viewFreelancer(UsersGroup7 freelancer){
+        cUser = freelancer;
+        return "fl-details";
+        
     }
     
     

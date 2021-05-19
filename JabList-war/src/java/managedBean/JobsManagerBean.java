@@ -7,6 +7,7 @@ package managedBean;
 
 import ejb.JobFacadeLocal;
 import entities.JobsGroup7;
+import entities.UsersGroup7;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -29,6 +30,7 @@ public class JobsManagerBean implements Serializable {
     private String description;
     private Double paymentOffer;
     private String status;
+    private JobsGroup7 cjob;
     
     
     /**
@@ -90,5 +92,21 @@ public class JobsManagerBean implements Serializable {
     public void deleteJob(JobsGroup7 job ) {
         
     }
+
+    public JobsGroup7 getCjob() {
+        return cjob;
+    }
+
+    public void setCjob(JobsGroup7 cjob) {
+        this.cjob = cjob;
+    }
     
+    public String viewJob(JobsGroup7 job){
+        cjob = job;
+        return "jobDetails";
+    }
+    
+    public void acceptFreelancer(UsersGroup7 freelancer){
+       
+    }
 }
