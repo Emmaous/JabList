@@ -6,6 +6,7 @@
 package ejb;
 
 import entities.JobsGroup7;
+import entities.UsersGroup7;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -31,10 +32,33 @@ public class JobFacade extends AbstractFacade<JobsGroup7> implements JobFacadeLo
         super(JobsGroup7.class);
     }
     
+    /**
+     *
+     * @param user
+     * @param jobId
+     */
+    @Override
+    public void applyForJob(UsersGroup7 user, String jobId) {
+        
+        JobsGroup7 test = getEntityManager().createNamedQuery("JobsGroup7.findByJobId", JobsGroup7.class)
+                .setParameter("jobId", jobId)
+                .getSingleResult();
+        test.getUsersGroup7Collection().add(user);
+        em.persist(test);
+    }
+    
     @Override
     public List<JobsGroup7> findJobsByProvider(Object id) {
         return getEntityManager().createNamedQuery("JobsGroup7.findByProviderId", JobsGroup7.class)
                 .setParameter("providerId", id)
+                .getResultList();
+    }
+    
+    @Override
+    public List<JobsGroup7> findOffersByFreelancer(String freelancerId, String status) {
+        return getEntityManager().createNamedQuery("JobOffers.findByFreelancerIdAndStatus", JobsGroup7.class)
+                .setParameter("freelancerId", "freelancerId")
+                .setParameter("status", "Open")
                 .getResultList();
     }
 }

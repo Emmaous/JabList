@@ -10,6 +10,8 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -37,6 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "JobsGroup7.findByDescription", query = "SELECT j FROM JobsGroup7 j WHERE j.description = :description"),
     @NamedQuery(name = "JobsGroup7.findByPaymentOffer", query = "SELECT j FROM JobsGroup7 j WHERE j.paymentOffer = :paymentOffer"),
     @NamedQuery(name = "JobsGroup7.findByProviderId", query = "SELECT j FROM JobsGroup7 j WHERE j.providerId = :providerId"),
+//    @NamedQuery(name = "JobsGroup7.findByFreelancerIdAndJobId", query = "SELECT j FROM JobOffers j JOIN Jobs jo WHERE j.jobOffersPK.jobId = jo.jobId AND j.jobOffersPK.freelancerId = :freelancerId AND j.jobOffersPK.jobId = :jobId"),
     @NamedQuery(name = "JobsGroup7.findByStatus", query = "SELECT j FROM JobsGroup7 j WHERE j.status = :status")})
 public class JobsGroup7 implements Serializable {
 
@@ -45,6 +48,7 @@ public class JobsGroup7 implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "JOB_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer jobId;
     @Size(max = 35)
     @Column(name = "TITLE")
@@ -83,8 +87,6 @@ public class JobsGroup7 implements Serializable {
         this.status = status;
         this.providerId = providerId;
     }
-    
-    
 
     public JobsGroup7(Integer jobId) {
         this.jobId = jobId;
