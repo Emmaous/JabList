@@ -108,9 +108,7 @@ public class AdminManagerBean implements Serializable {
     public void setFmessage(String fmessage) {
         this.fmessage = fmessage;
     }
-    
-    
-    
+      
     public Collection<UsersGroup7> printProviders(){
         return userFacade.findByRoleName("PR");  
     }
@@ -124,8 +122,8 @@ public class AdminManagerBean implements Serializable {
     }
     
     public void removeFreelancer(UsersGroup7 freelancer){
+        freeLancerFacade.remove(freeLancerFacade.find(freelancer.getUserId()));
         userFacade.remove(freelancer);
-        
     }
     
     public void createProvider(){
