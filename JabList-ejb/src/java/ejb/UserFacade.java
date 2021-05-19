@@ -79,7 +79,7 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
     @Override
     public Collection<UsersGroup7> findByRoleName(String roleName) {
         return em.createNamedQuery("UsersGroup7.findByRole")
-                .setParameter("roleName", roleName)
+                .setParameter("role", roleName)
                 .getResultList();
     }
 
