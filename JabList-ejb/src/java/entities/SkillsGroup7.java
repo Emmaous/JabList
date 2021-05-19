@@ -6,7 +6,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -45,7 +45,7 @@ public class SkillsGroup7 implements Serializable {
     @Column(name = "SKILL")
     private String skill;
     @ManyToMany(mappedBy = "skillsGroup7Collection")
-    private Collection<UsersGroup7> usersGroup7Collection;
+    private List<UsersGroup7> usersGroup7Collection;
 
     public SkillsGroup7() {
     }
@@ -76,11 +76,11 @@ public class SkillsGroup7 implements Serializable {
     }
 
     @XmlTransient
-    public Collection<UsersGroup7> getUsersGroup7Collection() {
+    public List<UsersGroup7> getUsersGroup7Collection() {
         return usersGroup7Collection;
     }
 
-    public void setUsersGroup7Collection(Collection<UsersGroup7> usersGroup7Collection) {
+    public void setUsersGroup7Collection(List<UsersGroup7> usersGroup7Collection) {
         this.usersGroup7Collection = usersGroup7Collection;
     }
 
