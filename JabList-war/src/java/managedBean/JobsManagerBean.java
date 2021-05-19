@@ -5,11 +5,13 @@
  */
 package managedBean;
 
+import ejb.JobFacadeLocal;
 import entities.JobsGroup7;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.ejb.EJB;
 
 /**
  *
@@ -19,11 +21,15 @@ import java.util.List;
 @SessionScoped
 public class JobsManagerBean implements Serializable {
 
+    @EJB
+    private JobFacadeLocal jobFacade;
+
     private Integer jobId;
     private String title;
     private String description;
     private Double paymentOffer;
     private String status;
+    
     
     /**
      * Creates a new instance of JobsManagerBean
@@ -75,6 +81,11 @@ public class JobsManagerBean implements Serializable {
         
         return null;     
     };
+  
+    public void createJob() {
+        JobsGroup7 job = new JobsGroup7();
+        jobFacade.create(job);
+    }
     
     public void deleteJob(JobsGroup7 job ) {
         
