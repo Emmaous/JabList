@@ -28,7 +28,7 @@ public interface UserFacadeLocal {
     
     public UsersGroup7 findByUserId(String userid);
     
-    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skill);
+    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg);
     
     public UsersGroup7 createProvider(UsersGroup7 user);
 

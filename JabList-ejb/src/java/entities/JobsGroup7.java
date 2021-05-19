@@ -75,14 +75,12 @@ public class JobsGroup7 implements Serializable {
     public JobsGroup7() {
     }
 
-    public JobsGroup7(Integer jobId, String title, String description, Double paymentOffer, String status, List<TagsGroup7> tagsGroup7Collection, List<UsersGroup7> usersGroup7Collection, UsersGroup7 providerId) {
+    public JobsGroup7(Integer jobId, String title, String description, Double paymentOffer, String status, UsersGroup7 providerId) {
         this.jobId = jobId;
         this.title = title;
         this.description = description;
         this.paymentOffer = paymentOffer;
         this.status = status;
-        this.tagsGroup7Collection = tagsGroup7Collection;
-        this.usersGroup7Collection = usersGroup7Collection;
         this.providerId = providerId;
     }
     

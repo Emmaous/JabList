@@ -42,7 +42,7 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
     }
 
     @Override
-    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skills) {
+    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg) {
         try {
             user.setPassword(AuthenticationUtils.encodeSHA256(user.getPassword()));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
@@ -53,9 +53,9 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         free.setUsersGroup7(user);
         free.setFreelancerId(user.getUserId());
         free.setMessage(msg);
-        skills.forEach(skill -> {  
-            em.persist(skill);
-        });
+        //skills.forEach(skill -> {  
+        //    em.persist(skill);
+        //});
         
         em.persist(user);
         em.persist(free);

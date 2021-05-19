@@ -30,6 +30,7 @@ public class UserManager implements Serializable {
     private String pword;
     private String message;
     private String role;
+    private String id;
     private UsersGroup7 cUser;
     private SkillsGroup7 skill;
     private List<SkillsGroup7> skills;
@@ -63,6 +64,22 @@ public class UserManager implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UsersGroup7 getcUser() {
+        return cUser;
+    }
+
+    public void setcUser(UsersGroup7 cUser) {
+        this.cUser = cUser;
     }
     
     public String getDescription() {
@@ -102,9 +119,9 @@ public class UserManager implements Serializable {
     }
     
     public void createProvider(){
-       String id = "";
+       String id = "001";
        UsersGroup7 user = new UsersGroup7(id, name, pword, "PR");
-       userFacade.createProvider(user);
+       userFacade.create(user);
     }
     
     public Collection<UsersGroup7> printProviders(){
@@ -125,14 +142,14 @@ public class UserManager implements Serializable {
     }
     
     public void createFreelancer(){
-        String id = "";
+        String id = "002";
         UsersGroup7 user = new UsersGroup7(id, name, pword, "FR");
-        userFacade.createFreelancer(user, message, skills);
+       // userFacade.createFreelancer(user, message, skills);
     }
     
     public String viewFreelancer(UsersGroup7 freelancer){
         cUser = freelancer;
-        return "fl-details";
+        return "freeDetails";
         
     }
     

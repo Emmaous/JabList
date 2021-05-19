@@ -8,7 +8,9 @@
         <title>JabList</title>
     </h:head>
     <h:body>
-       <h:form>
+        <ui:composition template="./templates/jablistTemplate.xhtml">
+            <ui:define name="content">
+        <h:form>
            <h1>Jobs</h1>
                 <hr/>
                 <h:form>
@@ -56,10 +58,12 @@
                 </tr>
                 <tr>
                       <td><h:commandButton value="Create"
-                                           action="#{jobsManagerBean.createJob()}" /></td>
+                                           action="#{jobsManagerBean.createJob(userManager.id)}" /></td>
                 </tr>
             </table>
         </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

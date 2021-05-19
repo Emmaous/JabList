@@ -11,7 +11,7 @@ import entities.UsersGroup7;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
+import java.util.*;
 import javax.ejb.EJB;
 
 /**
@@ -25,26 +25,19 @@ public class JobsManagerBean implements Serializable {
     @EJB
     private JobFacadeLocal jobFacade;
 
-    private Integer jobId;
     private String title;
     private String description;
     private Double paymentOffer;
     private String status;
     private JobsGroup7 cjob;
+    private UUID uuid1 = UUID.randomUUID();
+  //  private int jobId = (int) uuid1.toString().substring(0,7);
     
     
     /**
      * Creates a new instance of JobsManagerBean
      */
     public JobsManagerBean() {
-    }
-
-    public Integer getJobId() {
-        return jobId;
-    }
-
-    public void setJobId(Integer jobId) {
-        this.jobId = jobId;
     }
 
     public String getTitle() {
@@ -80,12 +73,12 @@ public class JobsManagerBean implements Serializable {
     }
     
     public List<JobsGroup7> printAllJobs(){
-        
         return null;     
     };
   
-    public void createJob() {
-        JobsGroup7 job = new JobsGroup7();
+    public void createJob(UsersGroup7 providerId) {
+        
+        JobsGroup7 job = new JobsGroup7(001, title, description, paymentOffer, status, providerId);
         jobFacade.create(job);
     }
     
@@ -102,7 +95,7 @@ public class JobsManagerBean implements Serializable {
     }
     
     public String viewJob(JobsGroup7 job){
-        cjob = job;
+        //this.title = ;
         return "jobDetails";
     }
     

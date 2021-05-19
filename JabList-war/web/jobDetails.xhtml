@@ -8,28 +8,8 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:dataTable value='#{jobsManagerBean.printAllJobs()}' var='job' border='1' width='300' cellpadding="5">
-                <h:column>
-                    <f:facet name='header'>Title</f:facet>
-                    <h:outputText value="#{job.title}"/>
-                </h:column>
-
-                <h:column>
-                    <f:facet name='header'>Description</f:facet>
-                    <h:outputText value="#{job.description}"/>    
-                </h:column>
-
-                <h:column>
-                    <f:facet name='header'>Pay</f:facet>
-                    <h:outputText value="#{job.paymentOffer}"/>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">Delete</f:facet>
-                    <h:commandButton value="Delete" action="#{jobsManagerBean.deleteJob(job)}"/>
-                </h:column>
-
-            </h:dataTable>
+            <h:outputText value="#{jobsManagerBean.title}"/>
+            <h:outputText value="#{jobsManagerBean.description}"/>
          </h:form>
         
         <h:form>
