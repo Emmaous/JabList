@@ -6,6 +6,7 @@
 package ejb;
 
 import entities.JobsGroup7;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,12 @@ public class JobFacade extends AbstractFacade<JobsGroup7> implements JobFacadeLo
 
     public JobFacade() {
         super(JobsGroup7.class);
+    }
+    
+    @Override
+    public List<JobsGroup7> findJobsByProvider(Object id) {
+        return getEntityManager().createNamedQuery("JobsGroup7.findByProviderId", JobsGroup7.class)
+                .setParameter("providerId", id)
+                .getResultList();
     }
 }
