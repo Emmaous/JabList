@@ -11,6 +11,16 @@
             <h:outputText  value="#{greetingManager.welcome_msg}" rendered="#{greetingManager.access}"/>
             <h:commandButton value="Enter Site" action="#{greetingManager.greetUser()}" rendered="#{not greetingManager.access}"/>
         </h:form>
+        <h:form>
+            <p>Create new User</p>
+            <p>Name</p>
+            <h:inputText value="#{userManager.name}"/>
+            <p>Password</p>
+            <h:inputText value="#{userManager.pword}"/>
+            <p>Role</p>
+            <h:inputText value="#{userManager.role}"/>
+            <h:commandButton value="Submit" action="#{userManager.createUser()}"/>
+        </h:form>
     </h:body>
 </html>
 
