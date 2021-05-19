@@ -42,7 +42,7 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
     }
 
     @Override
-    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skills, String roleName) {
+    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skills) {
         try {
             user.setPassword(AuthenticationUtils.encodeSHA256(user.getPassword()));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
@@ -64,7 +64,7 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
     }
     
     @Override
-    public UsersGroup7 createProvider(UsersGroup7 user, String roleName) {
+    public UsersGroup7 createProvider(UsersGroup7 user) {
         try {
             user.setPassword(AuthenticationUtils.encodeSHA256(user.getPassword()));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {

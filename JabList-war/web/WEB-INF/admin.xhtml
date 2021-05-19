@@ -44,16 +44,16 @@
                     <hr/>
                     <h:form rendered="">
                         <h:form>
-                            <h:dataTable value='#{adminManagerBean.jobs}' var='job'
+                            <h:dataTable value='#{userManager.printProviders()}' var='provider'
                                  border='1' width='300' cellpadding="5">
                                 <h:column>
                                     <f:facet name='header'>Name</f:facet>
-                                    <h:outputText value="#{job.title}"/>
+                                    <h:outputText value="#{provider.name}"/>
                                 </h:column>
 
                                 <h:column>
                                     <f:facet name="header">Delete</f:facet>
-                                    <h:commandButton value="Delete"/>
+                                    <h:commandButton value="Delete" action="#{userManager.removeProvider(provider)}"/>
                                 </h:column>
 
                             </h:dataTable>
@@ -65,16 +65,16 @@
                         <table>
                             <tr>
                                   <td>Name:</td>
-                                  <td><h:inputText size="10" value="" /></td>
+                                  <td><h:inputText size="10" value="#{userManager.name}" /></td>
                             </tr>
                             <tr>
                                   <td>Password:</td>
-                                  <td><h:inputText size="5" value="" /></td>
+                                  <td><h:inputText size="5" value="#{userManager.pword}" /></td>
                             </tr>
                             <tr>
                                   <td> </td>
                                   <td><h:commandButton value="Submit"
-                                                       action="" /></td>
+                                                       action="#{userManager.createProvider()}" /></td>
                             </tr>
                         </table>
 
@@ -85,16 +85,16 @@
                     <hr/>
                     <h:form rendered="">
                         <h:form>
-                            <h:dataTable value='#{adminManagerBean.jobs}' var='job'
+                            <h:dataTable value='#{userManager.printFreelancers()}' var='freelancer'
                                  border='1' width='300' cellpadding="5">
                                 <h:column>
                                     <f:facet name='header'>Name</f:facet>
-                                    <h:outputText value="#{job.title}"/>
+                                    <h:outputText value="#{freelancer.name}"/>
                                 </h:column>
 
                                 <h:column>
                                     <f:facet name="header">Delete</f:facet>
-                                    <h:commandButton value="Delete"/>
+                                    <h:commandButton value="Delete" action="#{userManager.removeFreelancer(freelancer)}"/>
                                 </h:column>
 
                             </h:dataTable>
@@ -106,11 +106,11 @@
                         <table>
                             <tr>
                                   <td>Name:</td>
-                                  <td><h:inputText size="10" value="" /></td>
+                                  <td><h:inputText size="10" value="#{userManager.name}" /></td>
                             </tr>
                             <tr>
-                                  <td>Description:</td>
-                                  <td><h:inputText size="150" value="" /></td>
+                                  <td>Message:</td>
+                                  <td><h:inputText size="150" value="#{userManager.message}" /></td>
                             </tr>
                             <tr>
                                   <td>Skills:</td>
@@ -118,12 +118,12 @@
                             </tr>
                             <tr>
                                   <td>Password:</td>
-                                  <td><h:inputText size="5" value="" /></td>
+                                  <td><h:inputText size="5" value="#{userManager.pword}" /></td>
                             </tr>
                             <tr>
                                   <td> </td>
                                   <td><h:commandButton value="Submit"
-                                                       action="" /></td>
+                                                       action="#{userManager.createFreelancer()}" /></td>
                             </tr>
                         </table>
 

@@ -6,13 +6,12 @@
 package managedBean;
 
 import ejb.UserFacadeLocal;
-import ejb.UserSessionBeanLocal;
 import entities.SkillsGroup7;
-import entities.TagsGroup7;
 import entities.UsersGroup7;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.List;
 import javax.ejb.EJB;
 
@@ -26,12 +25,14 @@ public class UserManager implements Serializable {
 
     @EJB
     private UserFacadeLocal userFacade;
-  
+    
     private String name;
     private String pword;
     private String message;
     private String role;
+    private SkillsGroup7 skill;
     private List<SkillsGroup7> skills;
+    
     
     /**
      * Creates a new instance of UserManager
@@ -79,6 +80,14 @@ public class UserManager implements Serializable {
         this.message = message;
     }
 
+    public SkillsGroup7 getSkill() {
+        return skill;
+    }
+
+    public void setSkill(SkillsGroup7 skill) {
+        this.skill = skill;
+    }
+    
     public List<SkillsGroup7> getSkills() {
         return skills;
     }
@@ -87,13 +96,37 @@ public class UserManager implements Serializable {
         this.skills = skills;
     }
     
+    public void addSkill(){
+        skills.add(skill);
+    }
+    
     public void createProvider(){
-        UsersGroup7 user = new UsersGroup7();
-        userFacade.createFreelancer(user, message, skills, role);
+       String id = "";
+       UsersGroup7 user = new UsersGroup7(id, name, pword, "PR");
+       userFacade.createProvider(user);
+    }
+    
+    public Collection<UsersGroup7> printProviders(){
+        return userFacade.findByRoleName("PR");  
+    }
+    
+    public Collection<UsersGroup7> printFreelancers(){
+        return userFacade.findByRoleName("FR");  
+    }
+    
+    public void removeProvider(UsersGroup7 provider){
+        userFacade.remove(provider);
+    }
+    
+    public void removeFreelancer(UsersGroup7 freelancer){
+        userFacade.remove(freelancer);
+        
     }
     
     public void createFreelancer(){
-        
+        String id = "";
+        UsersGroup7 user = new UsersGroup7(id, name, pword, "FR");
+        userFacade.createFreelancer(user, message, skills);
     }
     
     
