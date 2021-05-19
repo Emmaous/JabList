@@ -6,17 +6,16 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
     </h:head>
     <h:body>
-        <ui:composition template="./templates/newTemplate.xhtml">
+        <ui:composition template="./templates/jablistTemplate.xhtml">
             <ui:define name="content">
                 <h1>Jobs</h1>
                 <hr/>
                 <h:form>
-                    <h:dataTable value='#{jobsManagerBean.printAllJobs()}' var='job'
-                         border='1' width='300' cellpadding="5">
+                    <h:dataTable value='#{jobsManagerBean.printAllJobs()}' var='job' border='1' width='300' cellpadding="5">
                         <h:column>
                             <f:facet name='header'>Title</f:facet>
                             <h:outputText value="#{job.title}"/>
@@ -39,10 +38,10 @@
                         
                     </h:dataTable>
                 </h:form>
+                
                 <div>
                     <h1>Providers</h1>
                     <hr/>
-                    <h:form rendered="">
                         <h:form>
                             <h:dataTable value='#{userManager.printProviders()}' var='provider'
                                  border='1' width='300' cellpadding="5">
@@ -83,7 +82,6 @@
                 <div>
                     <h1>Freelancers</h1>
                     <hr/>
-                    <h:form rendered="">
                         <h:form>
                             <h:dataTable value='#{userManager.printFreelancers()}' var='freelancer'
                                  border='1' width='300' cellpadding="5">
