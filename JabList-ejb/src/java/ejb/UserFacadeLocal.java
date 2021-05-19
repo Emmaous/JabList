@@ -5,8 +5,10 @@
  */
 package ejb;
 
+import entities.SkillsGroup7;
 import entities.UsersGroup7;
 import java.util.Collection;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -25,6 +27,10 @@ public interface UserFacadeLocal {
     public UsersGroup7 find(Object id);
     
     public UsersGroup7 findByUserId(String userid);
+    
+    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skill, String roleName);
+    
+    public UsersGroup7 createProvider(UsersGroup7 user, String roleName);
 
     public Collection<UsersGroup7> findAll();
     

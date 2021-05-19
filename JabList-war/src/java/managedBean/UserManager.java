@@ -5,10 +5,15 @@
  */
 package managedBean;
 
+import ejb.UserFacadeLocal;
 import ejb.UserSessionBeanLocal;
+import entities.SkillsGroup7;
+import entities.TagsGroup7;
+import entities.UsersGroup7;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -20,12 +25,13 @@ import javax.ejb.EJB;
 public class UserManager implements Serializable {
 
     @EJB
-    private UserSessionBeanLocal userSessionBean;
-
-    
+    private UserFacadeLocal userFacade;
+  
     private String name;
     private String pword;
+    private String message;
     private String role;
+    private List<SkillsGroup7> skills;
     
     /**
      * Creates a new instance of UserManager
@@ -57,8 +63,38 @@ public class UserManager implements Serializable {
         this.role = role;
     }
     
-    public void createUser(){
-        userSessionBean.createUser(name, pword, role);
+    public String getDescription() {
+        return message;
     }
+
+    public void setDescription(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public List<SkillsGroup7> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<SkillsGroup7> skills) {
+        this.skills = skills;
+    }
+    
+    public void createProvider(){
+        UsersGroup7 user = new UsersGroup7();
+        userFacade.createFreelancer(user, message, skills, role);
+    }
+    
+    public void createFreelancer(){
+        
+    }
+    
     
 }

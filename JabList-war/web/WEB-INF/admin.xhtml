@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="./templates/newTemplate.xhtml">
+            <ui:define name="content">
+                <h1>Jobs</h1>
+                <hr/>
+                <h:form>
+                    <h:dataTable value='#{jobsManagerBean.printAllJobs()}' var='job'
+                         border='1' width='300' cellpadding="5">
+                        <h:column>
+                            <f:facet name='header'>Title</f:facet>
+                            <h:outputText value="#{job.title}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name='header'>Description</f:facet>
+                            <h:outputText value="#{job.description}"/>    
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name='header'>Pay</f:facet>
+                            <h:outputText value="#{job.paymentOffer}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Delete</f:facet>
+                            <h:commandButton value="Delete" action="#{jobsManagerBean.deleteJob(job)}"/>
+                        </h:column>
+                        
+                    </h:dataTable>
+                </h:form>
+                <div>
+                    <h1>Providers</h1>
+                    <hr/>
+                    <h:form rendered="">
+                        <h:form>
+                            <h:dataTable value='#{adminManagerBean.jobs}' var='job'
+                                 border='1' width='300' cellpadding="5">
+                                <h:column>
+                                    <f:facet name='header'>Name</f:facet>
+                                    <h:outputText value="#{job.title}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Delete</f:facet>
+                                    <h:commandButton value="Delete"/>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:form>
+
+                        <hr/>
+                    <h:form>
+                        <h3>Add Provider</h3>
+                        <table>
+                            <tr>
+                                  <td>Name:</td>
+                                  <td><h:inputText size="10" value="" /></td>
+                            </tr>
+                            <tr>
+                                  <td>Password:</td>
+                                  <td><h:inputText size="5" value="" /></td>
+                            </tr>
+                            <tr>
+                                  <td> </td>
+                                  <td><h:commandButton value="Submit"
+                                                       action="" /></td>
+                            </tr>
+                        </table>
+
+                    </h:form>
+                </div>
+                <div>
+                    <h1>Freelancers</h1>
+                    <hr/>
+                    <h:form rendered="">
+                        <h:form>
+                            <h:dataTable value='#{adminManagerBean.jobs}' var='job'
+                                 border='1' width='300' cellpadding="5">
+                                <h:column>
+                                    <f:facet name='header'>Name</f:facet>
+                                    <h:outputText value="#{job.title}"/>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header">Delete</f:facet>
+                                    <h:commandButton value="Delete"/>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:form>
+
+                        <hr/>
+                    <h:form>
+                        <h3>Add Freelancer</h3>
+                        <table>
+                            <tr>
+                                  <td>Name:</td>
+                                  <td><h:inputText size="10" value="" /></td>
+                            </tr>
+                            <tr>
+                                  <td>Description:</td>
+                                  <td><h:inputText size="150" value="" /></td>
+                            </tr>
+                            <tr>
+                                  <td>Skills:</td>
+                                  <td><h:inputText size="20" value="" /></td>
+                            </tr>
+                            <tr>
+                                  <td>Password:</td>
+                                  <td><h:inputText size="5" value="" /></td>
+                            </tr>
+                            <tr>
+                                  <td> </td>
+                                  <td><h:commandButton value="Submit"
+                                                       action="" /></td>
+                            </tr>
+                        </table>
+
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -76,6 +76,7 @@ public class JobsGroup7 implements Serializable {
 
     public JobsGroup7(Integer jobId) {
         this.jobId = jobId;
+        
     }
 
     public Integer getJobId() {

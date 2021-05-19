@@ -13,6 +13,7 @@ import entities.UsersGroup7;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Stateless;
@@ -40,7 +41,8 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         super(UsersGroup7.class);
     }
 
-    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, String skill, String roleName) {
+    @Override
+    public UsersGroup7 createFreelancer(UsersGroup7 user, String msg, List<SkillsGroup7> skills, String roleName) {
         try {
             user.setPassword(AuthenticationUtils.encodeSHA256(user.getPassword()));
         } catch (UnsupportedEncodingException | NoSuchAlgorithmException e) {
@@ -48,19 +50,20 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         }
 
         FreelancerDetailsGroup7 free = new FreelancerDetailsGroup7();
-        SkillsGroup7 skills = new SkillsGroup7();
         free.setUsersGroup7(user);
         free.setFreelancerId(user.getUserId());
         free.setMessage(msg);
-        skills.setSkill(skill);
+        skills.forEach(skill -> {  
+            em.persist(skill);
+        });
         
         em.persist(user);
         em.persist(free);
-        em.persist(skills);
         
         return user;
     }
     
+    @Override
     public UsersGroup7 createProvider(UsersGroup7 user, String roleName) {
         try {
             user.setPassword(AuthenticationUtils.encodeSHA256(user.getPassword()));
