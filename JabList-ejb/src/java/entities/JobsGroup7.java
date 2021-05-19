@@ -36,6 +36,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "JobsGroup7.findByTitle", query = "SELECT j FROM JobsGroup7 j WHERE j.title = :title"),
     @NamedQuery(name = "JobsGroup7.findByDescription", query = "SELECT j FROM JobsGroup7 j WHERE j.description = :description"),
     @NamedQuery(name = "JobsGroup7.findByPaymentOffer", query = "SELECT j FROM JobsGroup7 j WHERE j.paymentOffer = :paymentOffer"),
+    @NamedQuery(name = "JobsGroup7.findByProviderId", query = "SELECT j FROM JobsGroup7 j WHERE j.providerId = :providerId"),
     @NamedQuery(name = "JobsGroup7.findByStatus", query = "SELECT j FROM JobsGroup7 j WHERE j.status = :status")})
 public class JobsGroup7 implements Serializable {
 
@@ -73,6 +74,19 @@ public class JobsGroup7 implements Serializable {
 
     public JobsGroup7() {
     }
+
+    public JobsGroup7(Integer jobId, String title, String description, Double paymentOffer, String status, List<TagsGroup7> tagsGroup7Collection, List<UsersGroup7> usersGroup7Collection, UsersGroup7 providerId) {
+        this.jobId = jobId;
+        this.title = title;
+        this.description = description;
+        this.paymentOffer = paymentOffer;
+        this.status = status;
+        this.tagsGroup7Collection = tagsGroup7Collection;
+        this.usersGroup7Collection = usersGroup7Collection;
+        this.providerId = providerId;
+    }
+    
+    
 
     public JobsGroup7(Integer jobId) {
         this.jobId = jobId;

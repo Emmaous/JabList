@@ -26,6 +26,8 @@ public interface JobFacadeLocal {
     public List<JobsGroup7> findAll();
 
     public List<JobsGroup7> findRange(int[] range);
+    
+    public List<JobsGroup7> findJobsByProvider(Object id);
 
     public int count();
 }
