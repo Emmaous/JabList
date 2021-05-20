@@ -32,6 +32,7 @@ public class AdminManagerBean implements Serializable {
     private String name;
     private String pword;
     
+    //variables for fields of users
     private String cname;
     private String cpword;
     private String fname;
@@ -108,30 +109,70 @@ public class AdminManagerBean implements Serializable {
     public void setFmessage(String fmessage) {
         this.fmessage = fmessage;
     }
-      
+    
+    /**
+     *
+     * Method to print all providers
+     *
+     */
     public Collection<UsersGroup7> printProviders(){
         return userFacade.findByRoleName("PR");  
     }
     
+    /**
+     *
+     * Method to print all Freelancer
+     *
+     * @param 
+     * @return
+     */
     public Collection<UsersGroup7> printFreelancers(){
         return userFacade.findByRoleName("FR");  
     }
     
+    /**
+     *
+     * Method to delete a Provider
+     *
+     * @param
+     * @return
+     */
     public void removeProvider(UsersGroup7 provider){
         userFacade.remove(provider);
     }
     
+    /**
+     *
+     * Method to delete a freelancer
+     *
+     * @param
+     * @return
+     */
     public void removeFreelancer(UsersGroup7 freelancer){
         freeLancerFacade.remove(freeLancerFacade.find(freelancer.getUserId()));
         userFacade.remove(freelancer);
     }
     
+    /**
+     *
+     * Method to create a Provider
+     *
+     * @param
+     * @return
+     */
     public void createProvider(){
        String id = "001";
        UsersGroup7 user = new UsersGroup7(id, cname, cpword, "PR");
        userFacade.create(user);
     }
     
+    /**
+     *
+     * Method to create a Freelancer
+     *
+     * @param
+     * @return
+     */
     public void createFreelancer(){
         String id = "002";
         UsersGroup7 user = new UsersGroup7(id, fname, fpword, "FR");
