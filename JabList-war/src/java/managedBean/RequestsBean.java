@@ -57,8 +57,16 @@ public class RequestsBean {
         this.pword = pword;
     }
     
-    public void validateUser(){
-        //userFacade.
+    @SuppressWarnings("empty-statement")
+    public String validateUser(){
+        String result = "";
+        if(userFacade.findByName(username).get(0).getPassword() == pword){
+            result = "admin";
+        } else {
+            result = "index";
+        };
+        
+        return result;
     }
     /**
      *

@@ -15,7 +15,7 @@
         <p>Password</p>
         <h:inputText value="#{requestsBean.pword}"/>
         <br/>
-        <h:commandButton value="Submit"/>
+        <h:commandButton value="Submit" action="#{requestsBean.validateUser()}"/>
         </h:form>  
         
     </h:body>
