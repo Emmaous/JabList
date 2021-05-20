@@ -6,6 +6,7 @@
 package managedBean;
 
 import ejb.JobFacadeLocal;
+import ejb.UserFacadeLocal;
 import entities.JobsGroup7;
 import entities.UsersGroup7;
 import javax.inject.Named;
@@ -23,15 +24,16 @@ import javax.ejb.EJB;
 public class JobsManagerBean implements Serializable {
 
     @EJB
-    private JobFacadeLocal jobFacade;
+    private UserFacadeLocal userFacade;
+
+    @EJB
+    private JobFacadeLocal jobFacade;  
 
     private String title;
     private String description;
     private Double paymentOffer;
     private String status;
     private JobsGroup7 cjob;
-    private UUID uuid1 = UUID.randomUUID();
-  //  private int jobId = (int) uuid1.toString().substring(0,7);
     
     
     /**
@@ -72,20 +74,39 @@ public class JobsManagerBean implements Serializable {
         this.status = status;
     }
     
+    /**
+     *
+     * Method to print all available jobs
+     *
+     * @param
+     * @return
+     */
     public List<JobsGroup7> printAllJobs(){
         return jobFacade.findAll();     
     };
-    
-    
   
-    public void createJob(UsersGroup7 providerId) {
-        
-        JobsGroup7 job = new JobsGroup7(001, title, description, paymentOffer, status, providerId);
+    /**
+     *
+     * Method to create a job entity
+     *
+     * @param
+     * @return
+     */
+    public void createJob(String providerId) {
+        UsersGroup7 provider = userFacade.find(providerId);
+        JobsGroup7 job = new JobsGroup7(001, title, description, paymentOffer, status, provider);
         jobFacade.create(job);
     }
     
+    /**
+     *
+     * Method to delete a job
+     *
+     * @param
+     * @return
+     */
     public void deleteJob(JobsGroup7 job ) {
-        
+        jobFacade.remove(job);
     }
 
     public JobsGroup7 getCjob() {
@@ -96,12 +117,27 @@ public class JobsManagerBean implements Serializable {
         this.cjob = cjob;
     }
     
+    /**
+     *
+     * Method to view details of a particular job
+     *
+     * @param
+     * @return string of viewing page
+     */
     public String viewJob(JobsGroup7 job){
         //this.title = ;
         return "jobDetails";
     }
     
+    /**
+     *
+     * Method to accept a freelancer for a job
+     *
+     * @param
+     * @return
+     */
     public void acceptFreelancer(UsersGroup7 freelancer){
        
     }
+
 }

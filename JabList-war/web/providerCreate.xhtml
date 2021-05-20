@@ -50,7 +50,9 @@
                 </tr>
                 <tr>
                       <td>Pay-Offer:</td>
-                      <td><h:inputText size="5" value="#{jobsManagerBean.paymentOffer}" /></td>
+                      <td><h:inputText size="5" value="#{jobsManagerBean.paymentOffer}">
+                              <f:validateLongRange minimum="0" maximum="100000"/>
+                          </h:inputText></td>
                 </tr>
                <!-- <tr>
                       <td>Keywords:</td>
@@ -58,7 +60,7 @@
                 </tr> -->
                 <tr>
                       <td><h:commandButton value="Create"
-                                           action="#{jobsManagerBean.createJob(providerManagerBean.id)}" /></td>
+                                           action='#{jobsManagerBean.createJob("002")}' /></td>
                 </tr>
             </table>
         </h:form>
