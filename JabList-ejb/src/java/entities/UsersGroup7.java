@@ -6,7 +6,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -63,14 +63,14 @@ public class UsersGroup7 implements Serializable {
     @Column(name = "ROLE")
     private String role;
     @ManyToMany(mappedBy = "usersGroup7Collection")
-    private Collection<JobsGroup7> jobsGroup7Collection;
+    private List<JobsGroup7> jobsGroup7Collection;
     @JoinTable(name = "FREELANCER_SKILLS_GROUP7", joinColumns = {
         @JoinColumn(name = "FREELANCER_ID", referencedColumnName = "USER_ID")}, inverseJoinColumns = {
         @JoinColumn(name = "SKILL_ID", referencedColumnName = "SKILLS_ID")})
     @ManyToMany
-    private Collection<SkillsGroup7> skillsGroup7Collection;
+    private List<SkillsGroup7> skillsGroup7Collection;
     @OneToMany(mappedBy = "providerId")
-    private Collection<JobsGroup7> jobsGroup7Collection1;
+    private List<JobsGroup7> jobsGroup7Collection1;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "usersGroup7")
     private FreelancerDetailsGroup7 freelancerDetailsGroup7;
 
@@ -121,29 +121,29 @@ public class UsersGroup7 implements Serializable {
     }
 
     @XmlTransient
-    public Collection<JobsGroup7> getJobsGroup7Collection() {
+    public List<JobsGroup7> getJobsGroup7Collection() {
         return jobsGroup7Collection;
     }
 
-    public void setJobsGroup7Collection(Collection<JobsGroup7> jobsGroup7Collection) {
+    public void setJobsGroup7Collection(List<JobsGroup7> jobsGroup7Collection) {
         this.jobsGroup7Collection = jobsGroup7Collection;
     }
 
     @XmlTransient
-    public Collection<SkillsGroup7> getSkillsGroup7Collection() {
+    public List<SkillsGroup7> getSkillsGroup7Collection() {
         return skillsGroup7Collection;
     }
 
-    public void setSkillsGroup7Collection(Collection<SkillsGroup7> skillsGroup7Collection) {
+    public void setSkillsGroup7Collection(List<SkillsGroup7> skillsGroup7Collection) {
         this.skillsGroup7Collection = skillsGroup7Collection;
     }
 
     @XmlTransient
-    public Collection<JobsGroup7> getJobsGroup7Collection1() {
+    public List<JobsGroup7> getJobsGroup7Collection1() {
         return jobsGroup7Collection1;
     }
 
-    public void setJobsGroup7Collection1(Collection<JobsGroup7> jobsGroup7Collection1) {
+    public void setJobsGroup7Collection1(List<JobsGroup7> jobsGroup7Collection1) {
         this.jobsGroup7Collection1 = jobsGroup7Collection1;
     }
 
