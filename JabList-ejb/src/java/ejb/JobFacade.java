@@ -47,6 +47,13 @@ public class JobFacade extends AbstractFacade<JobsGroup7> implements JobFacadeLo
         em.persist(test);
     }
     
+    /**
+     * 
+     * Method to find jobs by providers
+     * 
+     * @param id
+     * @return 
+     */
     @Override
     public List<JobsGroup7> findJobsByProvider(Object id) {
         return getEntityManager().createNamedQuery("JobsGroup7.findByProviderId", JobsGroup7.class)
