@@ -105,12 +105,40 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
                 .setParameter("role", roleName)
                 .getResultList();
     }
+    
+    /**
+     * 
+     * Method to Find users by Name
+     * 
+     * @param name
+     * @return 
+     */
+    @Override
+    public List<UsersGroup7> findByName(String name) {
+        return em.createNamedQuery("UsersGroup7.findByName")
+                .setParameter("name", name)
+                .getResultList();
+    }
+    
+    /**
+     * 
+     * Method to Find users by Password
+     * 
+     * @param password
+     * @return 
+     */
+    @Override
+    public List<UsersGroup7> findByPassword(String password) {
+        return em.createNamedQuery("UsersGroup7.findByPassword")
+                .setParameter("password", password)
+                .getResultList();
+    }
 
     /**
      * 
      * Method to find users by ID
      * 
-     * @param user
+     * @param userid
      * @return 
      */
     @Override

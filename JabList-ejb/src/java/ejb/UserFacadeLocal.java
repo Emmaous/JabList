@@ -36,6 +36,10 @@ public interface UserFacadeLocal {
     public List<UsersGroup7> findAll();
     
     public List<UsersGroup7> findByRoleName(String roleName);
+    
+    public List<UsersGroup7> findByName(String name);
+    
+    public List<UsersGroup7> findByPassword(String password);
 
     public List<UsersGroup7> findRange(int[] range);
     
