@@ -5,6 +5,7 @@
  */
 package managedBean;
 
+import ejb.FreeLancerFacadeLocal;
 import ejb.JobFacadeLocal;
 import entities.JobsGroup7;
 import entities.UsersGroup7;
@@ -23,9 +24,13 @@ import javax.ejb.EJB;
 public class ProviderManagerBean implements Serializable {
 
     @EJB
+    private FreeLancerFacadeLocal freeLancerFacade;
+
+    @EJB
     private JobFacadeLocal jobFacade;
     
-
+    
+    
     private String name;
     private String pword;
     private String id;
@@ -70,6 +75,14 @@ public class ProviderManagerBean implements Serializable {
     public void setJob(JobsGroup7 job) {
         this.job = job;
     }
+
+    public UsersGroup7 getFlancer() {
+        return flancer;
+    }
+
+    public void setFlancer(UsersGroup7 flancer) {
+        this.flancer = flancer;
+    }
  
     public List<JobsGroup7> printAllProvJobs(){
         return jobFacade.findJobsByProvider(id);
@@ -87,4 +100,11 @@ public class ProviderManagerBean implements Serializable {
         
     }
     
+    public String printFName(){
+        return flancer.getName();
+    }
+    
+    public String printFMessage(){
+        return freeLancerFacade.find(flancer.getUserId()).getMessage();
+    }
 }

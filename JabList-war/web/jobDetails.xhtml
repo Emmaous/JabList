@@ -8,8 +8,10 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:outputText value="#{jobsManagerBean.title}"/>
-            <h:outputText value="#{jobsManagerBean.description}"/>
+            <h:outputText value="#{jobsManagerBean.cjob.title}"/>
+            <h:outputText value="#{jobsManagerBean.cjob.description}"/>
+            <br/>
+            <h:outputText value="#{jobsManagerBean.cjob.status}"/>
          </h:form>
         
         <h:form>
@@ -21,7 +23,7 @@
 
                     <h:column>
                         <f:facet name="header">View</f:facet>
-                        <h:commandButton value="View" action="#{userManager.viewFreelancer(freelancer)}"/>
+                        <h:commandButton value="View" action="#{providerManagerBean.viewFreelancer(freelancer)}"/>
                     </h:column>
                     
                     <h:column>
