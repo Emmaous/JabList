@@ -5,6 +5,7 @@
  */
 package ejb;
 
+import entities.JobsGroup7;
 import entities.SkillsGroup7;
 import entities.UsersGroup7;
 import java.util.Collection;
@@ -32,11 +33,13 @@ public interface UserFacadeLocal {
     
     public UsersGroup7 createProvider(UsersGroup7 user);
 
-    public Collection<UsersGroup7> findAll();
+    public List<UsersGroup7> findAll();
     
-    public Collection<UsersGroup7> findByRoleName(String roleName);
+    public List<UsersGroup7> findByRoleName(String roleName);
 
-    public Collection<UsersGroup7> findRange(int[] range);
+    public List<UsersGroup7> findRange(int[] range);
+    
+    public List<JobsGroup7> jobsGroup7Collection(int jobId, String free);
 
     public int count();
 }

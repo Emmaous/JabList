@@ -6,13 +6,13 @@
 package ejb;
 
 import entities.FreelancerDetailsGroup7;
+import entities.JobsGroup7;
 import entities.SkillsGroup7;
 import entities.TagsGroup7;
 import utils.AuthenticationUtils;
 import entities.UsersGroup7;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -100,7 +100,7 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
      * @return 
      */
     @Override
-    public Collection<UsersGroup7> findByRoleName(String roleName) {
+    public List<UsersGroup7> findByRoleName(String roleName) {
         return em.createNamedQuery("UsersGroup7.findByRole")
                 .setParameter("role", roleName)
                 .getResultList();
@@ -118,5 +118,21 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         return em.createNamedQuery("UsersGroup7.findByUserId", UsersGroup7.class)
                 .setParameter("userId", userid)
                 .getSingleResult();
+    }
+    
+    /**
+     * 
+     * Method to find users by ID
+     * 
+     * @param jobId
+     * @param free
+     * @return 
+     */
+    @Override
+    public List<JobsGroup7> jobsGroup7Collection(int jobId, String free) {
+        return getEntityManager().createNamedQuery("JobsGroup7.findByFreelancerIdAndJobId", JobsGroup7.class)
+                .setParameter("jobId", jobId)
+                .setParameter("freelancerId", free)
+                .getResultList();
     }
 }

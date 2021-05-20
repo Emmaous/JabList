@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "JobsGroup7.findByDescription", query = "SELECT j FROM JobsGroup7 j WHERE j.description = :description"),
     @NamedQuery(name = "JobsGroup7.findByPaymentOffer", query = "SELECT j FROM JobsGroup7 j WHERE j.paymentOffer = :paymentOffer"),
     @NamedQuery(name = "JobsGroup7.findByProviderId", query = "SELECT j FROM JobsGroup7 j WHERE j.providerId = :providerId"),
-//    @NamedQuery(name = "JobsGroup7.findByFreelancerIdAndJobId", query = "SELECT j FROM JobOffers j JOIN Jobs jo WHERE j.jobOffersPK.jobId = jo.jobId AND j.jobOffersPK.freelancerId = :freelancerId AND j.jobOffersPK.jobId = :jobId"),
+    @NamedQuery(name = "JobsGroup7.findByFreelancerIdAndJobId", query = "SELECT j FROM JobsGroup7 j JOIN FreelancerDetailsGroup7 fr WHERE j.jobId = :jobId AND fr.freelancerId = :freelancerId"),
     @NamedQuery(name = "JobsGroup7.findByStatus", query = "SELECT j FROM JobsGroup7 j WHERE j.status = :status")})
 public class JobsGroup7 implements Serializable {
 
