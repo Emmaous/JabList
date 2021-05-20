@@ -31,6 +31,13 @@ public class TagFacade extends AbstractFacade<TagsGroup7> implements TagFacadeLo
         super(TagsGroup7.class);
     }
     
+    /**
+     * 
+     * Method to find Jobs by tag
+     * 
+     * @param tag
+     * @return 
+     */
     @Override
     public TagsGroup7 findByTag(String tag) {
         return getEntityManager().createNamedQuery("TagsGroup7.findByTag", TagsGroup7.class)

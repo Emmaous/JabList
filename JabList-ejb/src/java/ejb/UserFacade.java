@@ -72,6 +72,13 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         return user;
     }
     
+    /**
+     * 
+     * Method to Create a Provider
+     * 
+     * @param user
+     * @return 
+     */
     @Override
     public UsersGroup7 createProvider(UsersGroup7 user) {
         try {
@@ -85,6 +92,13 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
         return user;
     }
 
+    /**
+     * 
+     * Method to Find users by Role
+     * 
+     * @param user
+     * @return 
+     */
     @Override
     public Collection<UsersGroup7> findByRoleName(String roleName) {
         return em.createNamedQuery("UsersGroup7.findByRole")
@@ -92,6 +106,13 @@ public class UserFacade extends AbstractFacade<UsersGroup7> implements UserFacad
                 .getResultList();
     }
 
+    /**
+     * 
+     * Method to find users by ID
+     * 
+     * @param user
+     * @return 
+     */
     @Override
     public UsersGroup7 findByUserId(String userid) {
         return em.createNamedQuery("UsersGroup7.findByUserId", UsersGroup7.class)
